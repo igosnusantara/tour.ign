@@ -4,8 +4,9 @@
     "name" : "Tur IGOS Nusantara" },
   "window" : { 
 	"transparent" : false, 
-	"noframe" : false, 
-	"fullscreen" : true
+	"noframe" : true, 
+	"fullscreen" : false,
+	"maximize" : true
 	 },
   "button" : [
 	"reload" ]
