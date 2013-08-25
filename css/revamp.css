@@ -88,18 +88,37 @@ h1 {
 	z-index: 99;
 }
 
-.desktop-overview {
-	text-align: center;
-	margin-bottom: 10px;
-}
-
-.desktop-overview > img {
-	margin: 0;
-	display: inline-block;
-	width: 19%;
-}
-
 #page3 {
 	position: fixed;
 	z-index: 98;
 }
+
+#page4 {
+	position: fixed;
+	z-index: 97;
+}
+
+#page5 {
+	position: fixed;
+	z-index: 96;
+}
+
+#page6 {
+	position: fixed;
+	z-index: 95;
+}
+#page7 {
+	position: fixed;
+	z-index: 94;
+}
+
+#page8 {
+	position: fixed;
+	z-index: 93;
+}
+
+#page9 {
+	position: fixed;
+	z-index: 92;
+}
+
