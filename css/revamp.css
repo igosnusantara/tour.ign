@@ -3,17 +3,41 @@
 	src: url('SourceSansPro-Light.ttf');
 }
 
+@font-face {
+	font-family: "Raleway";
+	src: url('Raleway-Light.ttf');
+}
+
+@font-face {
+	font-family: "Raleway Light";
+	src: url('Raleway-ExtraLight.ttf');
+}
+
+@font-face {
+	font-family: "Source Sans Pro Bold";
+	src: url('SourceSansPro-Regular.ttf');
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: "Source Sans Pro";
 	color: #333;
-	background-color: #ecf0f1;
+	background-color: #fffffd;
 	background-image: url('../img/header.svg');
 	background-size: 10%;
 	background-repeat: repeat-x;
 	width: 100%;
 	-webkit-user-select: none;
+}
+
+h2 {
+	font-size: 1.4em;
+}
+
+b {
+	font-family: "Source Sans Pro Bold";
+	font-size: 0.9em;
 }
 
 .exit {
@@ -46,7 +70,7 @@ body {
 }
 
 .container {
-	background-color: #ecf0f1;
+	background-color: #fffffd;
 	width: 70%;
 	margin-top: 10%;
 	margin-left: 15%;
@@ -54,7 +78,14 @@ body {
 }
 
 h1 {
+	font-family: Raleway;
 	font-size: 3em;
+}
+
+h1.sub {
+	font-family: "Raleway Light";
+	font-size: 2em;
+	margin: 10px 0 -10px 0;
 }
 
 .colored {
@@ -66,22 +97,46 @@ h1 {
 }
 
 .button {
-padding: 14px;
-font-size: 1.3em;
-color: white;
-background: #2A7FFF;
--webkit-transition: all 0.25s ease-in-out;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-border:0;
+	font-family: "Raleway";
+	padding: 14px;
+	font-size: 1.2em;
+	color: white;
+	background: #2A7FFF;
+	-webkit-transition: all 0.25s ease-in-out;
+	border:0;
 }
 
 .button:hover {
-background: #0044AA;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+	background: #0044AA;
+}
+
+.button-next {
+	float: right;
+	position: fixed;
+	right: 15%;
+	bottom: 5%;
+}
+
+.description-right {
+	position: fixed;
+	width: 35%;
+	margin: 0;
+	left: 50%;
+	display: inline-block;
+}
+
+.description-left {
+	position: fixed;
+	width: 35%;
+	margin: 0;
+	right: 50%;
+	display: inline-block;
+}
+
+.button-back {
+	position: fixed;
+	left: 15%;
+	bottom: 5%;
 }
 
 #page1 {
@@ -117,14 +172,7 @@ border-radius: 3px;
 	position: fixed;
 	z-index: 94;
 }
-
 #page8 {
 	position: fixed;
 	z-index: 93;
 }
-
-#page9 {
-	position: fixed;
-	z-index: 92;
-}
-
