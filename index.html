@@ -4,7 +4,7 @@
 		<script src="qrc:///js/jquery.js"></script>
 		<link href="css/revamp.css" rel="stylesheet">
 	</head>
-	<body>
+	<body page="1">
 		<input type="submit" value="&times;" class="exit" onClick="ign.quit()">
 		<div class="devbuild">DEVELOPER PRIKITIW</div>
 		<div id="page1" class="container">
@@ -27,7 +27,7 @@
 			<h2>IGN 100% gratis untuk Anda nikmati dan bagikan.</h2>
 			</div>
 			<input id="btn-page2" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page1" type="submit" value="Kembali">
 		</div>
 		<div id="page3" class="container">
 			<h1>Keunggulan IGN</h1>
@@ -40,7 +40,7 @@
 			<li>OS yang luar biasa powerfull</li></h2>
 			</div>
 			<input id="btn-page3" style="float: right;" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page2" type="submit" value="Kembali">
 		</div>
 		<div id="page4" class="container">
 			<h1>Kolaborasi</h1>
@@ -56,7 +56,7 @@
 			</div>
 			<img src="img/kolaborasi.png" style="width: 45%; margin: 5% 55% 0 0;">
 			<input id="btn-page4" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page3" type="submit" value="Kembali">
 		</div>
 		<div id="page5" class="container">
 			<h1>Hiburan dan Media</h1>
@@ -74,7 +74,7 @@
 			</div>
 			<img src="img/media.png" style="width: 45%; margin: 5% 55% 0 0;">
 			<input id="btn-page5" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page4" type="submit" value="Kembali">
 		</div>
 		<div id="page6" class="container">
 			<h1>Kreativitas</h1>
@@ -93,7 +93,7 @@
 			</div>
 			<img src="img/grafis.png" style="width: 45%; margin: 5% 0 0 55%;">
 			<input id="btn-page6" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page5" type="submit" value="Kembali">
 		</div>
 		<div id="page7" class="container">
 			<h1>Perkantoran</h1>
@@ -112,41 +112,47 @@
 			</div>
 			<img src="img/perkantoran.png" style="width: 45%; margin: 5% 55% 0 0;">
 			<input id="btn-page7" class="button button-next" type="submit" value="Lanjut">
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page6" type="submit" value="Kembali">
 		</div>
 		<div id="page8" class="container">
 			<h1 style="text-align: center; margin-top: 20%;">Terima kasih</h1>
-			<input class="button button-back" type="submit" value="Kembali">
+			<input class="button button-back" id="page7" type="submit" value="Kembali">
 		</div>
 		<script>
-			$("#btn-page1").click(function() {
+			$(".button-next").click(function() {
+        var next = $(this).attr("id").replace("btn-","");
 				function nextpage() {}
-				$("#page1").fadeOut(1000, nextpage);
+				$("#"+next).fadeOut(1000, nextpage);
+        var pg = parseInt($('body').attr('page'))+1;
+        $('body').attr('page',pg);
 			});
-			$("#btn-page2").click(function() {
-				function nextpage() {}
-				$("#page2").fadeOut(1000, nextpage);
-			});
-			$("#btn-page3").click(function() {
-				function nextpage() {}
-				$("#page3").fadeOut(1000, nextpage);
-			});
-			$("#btn-page4").click(function() {
-				function nextpage() {}
-				$("#page4").fadeOut(1000, nextpage);
-			});
-			$("#btn-page5").click(function() {
-				function nextpage() {}
-				$("#page5").fadeOut(1000, nextpage);
-			});
-			$("#btn-page6").click(function() {
-				function nextpage() {}
-				$("#page6").fadeOut(1000, nextpage);
-			});
-			$("#btn-page7").click(function() {
-				function nextpage() {}
-				$("#page7").fadeOut(1000, nextpage);
-			});
+      $(".button-back").click(function(){
+        var back_page = $(this).attr('id');
+        function back(){};
+        $("#"+back_page).fadeIn(1000,back());
+        var pg = parseInt($('body').attr('page')) - 1;
+        $('body').attr('page',pg)
+      });
+
+      $(window).bind('keydown',function(e){
+        var page = $('body').attr('page');
+        if(e.keyCode == 39){
+          var next = parseInt(page);
+          function nextpage(){};
+          if(next < 8){
+            $("#page"+next).fadeOut(1000,nextpage());
+            $('body').attr('page',next + 1);
+          }
+        }
+        else if(e.keyCode == 37){
+          var back = parseInt(page) - 1;
+          function back(){};
+          if(page > 1){
+            $("#page"+back).fadeIn(1000);
+            $('body').attr('page',back);
+          }
+        }
+      });
 		</script>
 	</body>
 </html>
